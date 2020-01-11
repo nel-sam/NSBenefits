@@ -1,8 +1,11 @@
+@import './../styles/variables.scss';
+
 html {
   font-size: 14px;
 }
 
 .main-container {
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 
@@ -10,15 +13,31 @@ html {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    color: white;
-    text-decoration: none;
+    color: $headerFontColor;
+  }
+
+  .desktop-menu {
+    display: none;
   }
 }
-
-
 
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+  }
+
+  .main-container {
+    .mobile-menu {
+      display: none;
+    }
+
+    .desktop-menu {
+      display: inherit;
+
+      .menu-link {
+        font-size: 0.9rem;
+        color: $headerFontColor;
+      }
+    }
   }
 }

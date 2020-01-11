@@ -12,7 +12,8 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatMenuModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule
 } from '@angular/material';
 
 
@@ -31,6 +32,7 @@ import {
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatCardModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ])
