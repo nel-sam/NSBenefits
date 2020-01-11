@@ -10,7 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule
 } from '@angular/material';
 
 
@@ -27,6 +29,8 @@ import {
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ])
