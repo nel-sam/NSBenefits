@@ -2,6 +2,16 @@ export interface AppState {
   employees: Employee[];
 }
 
-export interface Employee {
+export interface Person {
   firstName: string;
+  lastName: string;
+}
+
+export interface Employee extends Person {
+  salary: number;
+  dependents: Dependent[];
+}
+
+export interface Dependent extends Person {
+  dependentType: string;
 }

@@ -25,12 +25,32 @@ namespace NSBenefits.Controllers
 
             result.Add(new EmployeeDto
             {
-                FirstName = "Bob"
+                FirstName = "Bob",
+                LastName = "Smith",
+                Salary = 2000,
+                Dependents = new List<DependentDto>
+                {
+                    new DependentDto
+                    {
+                        FirstName = "Andy",
+                        LastName = "Smith"
+                    }
+                }
             });
 
             result.Add(new EmployeeDto
             {
-                FirstName = "Tommy"
+                FirstName = "Aaron",
+                LastName = "Thompson",
+                Salary = 2000,
+                Dependents = new List<DependentDto>
+                {
+                    new DependentDto
+                    {
+                        FirstName = "Mary",
+                        LastName = "Thompson"
+                    }
+                }
             });
 
             return result;
