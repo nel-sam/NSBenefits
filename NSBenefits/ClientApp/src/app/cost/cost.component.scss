@@ -1,14 +1,21 @@
 @import './../styles/variables.scss';
 
+.info-icon {
+  color: $gray;
+  font-size: 0.9rem;
+}
+
 .cost-table-row {
   width: 12rem;
   display: flex;
   justify-content: space-between;
 }
 
-.discounts-table {
+.table {
   margin: 1rem 0;
+}
 
+.discounts-table {
   .checkmark {
     color: $green;
   }

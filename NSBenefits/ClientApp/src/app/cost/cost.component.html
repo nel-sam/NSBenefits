@@ -24,9 +24,15 @@
  <mat-card-content>
   <table
   *ngIf="employeeDiscountApplied || dependentDiscountsApplied > 0"
-  class="discounts-table">
+  class="discounts-table table">
   <tr>
-    <th>Discounts Applied</th>
+    <th>Discounts Applied
+      <mat-icon
+        class="info-icon"
+        matTooltip="Employees and dependents whose name starts with 'A' get a 10% discount">
+        info
+      </mat-icon>
+    </th>
   </tr>
   <tr *ngIf="employeeDiscountApplied" class="cost-table-row">
     <td>Employee discount</td>
@@ -38,7 +44,7 @@
   </tr>
 </table>
 
-  <table class="cost-table">
+  <table class="cost-table table">
     <tr>
       <th>Cost breakdown</th>
     </tr>
@@ -50,8 +56,21 @@
       <td>Dependents ({{ selectedEmployee.dependents.length }})</td>
       <td>{{ dependentCost | currency }}</td>
     </tr>
+  </table>
+
+  <table class="table">
     <tr>
       <th>Totals</th>
+    </tr>
+  <tr class="cost-table-row">
+      <td>Percentage of pay
+        <mat-icon
+          class="info-icon"
+          matTooltip="Based of a salary of {{ selectedEmployee.salary | currency }} per pay period">
+          info
+        </mat-icon>
+      </td>
+      <td>{{ costPercentageOfPay.toFixed(2) }}%</td>
     </tr>
     <tr class="cost-table-row">
       <td>Per pay period</td>

@@ -15,7 +15,8 @@ import {
   MatIconModule,
   MatCardModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 } from '@angular/material';
 import { CostComponent } from './cost/cost.component';
 
@@ -39,6 +40,7 @@ import { CostComponent } from './cost/cost.component';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatTooltipModule,
     RouterModule.forRoot([
       //{ path: '', component: HomeComponent, pathMatch: 'full' },
       //{ path: 'cost', component: CostComponent, pathMatch: 'full' }
