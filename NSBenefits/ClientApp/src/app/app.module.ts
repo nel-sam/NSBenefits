@@ -13,8 +13,11 @@ import {
   MatToolbarModule,
   MatMenuModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatFormFieldModule,
+  MatSelectModule
 } from '@angular/material';
+import { CostComponent } from './cost/cost.component';
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import {
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    CostComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,8 +37,12 @@ import {
     MatMenuModule,
     MatIconModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      //{ path: '', component: HomeComponent, pathMatch: 'full' },
+      //{ path: 'cost', component: CostComponent, pathMatch: 'full' }
+      { path: '', component: CostComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],
