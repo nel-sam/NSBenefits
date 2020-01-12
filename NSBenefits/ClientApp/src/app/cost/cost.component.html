@@ -7,8 +7,8 @@
   <mat-form-field>
     <mat-label>Select an employee</mat-label>
     <mat-select>
-      <mat-option [value]="">
-        test
+      <mat-option *ngFor="let employee of employees$ | async" [value]="employee.firstName">
+        {{ employee.firstName }}
       </mat-option>
     </mat-select>
   </mat-form-field>
