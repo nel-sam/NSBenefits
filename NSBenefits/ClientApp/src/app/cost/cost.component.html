@@ -6,11 +6,61 @@
  <mat-card-content>
   <mat-form-field>
     <mat-label>Select an employee</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let employee of employees$ | async" [value]="employee.firstName">
+    <mat-select [(value)]="selectedEmployee" (valueChange)="calculateCost($event)">
+      <mat-option *ngFor="let employee of employees$ | async" [value]="employee">
         {{ employee.firstName }} {{ employee.lastName }}
       </mat-option>
     </mat-select>
   </mat-form-field>
+ </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="selectedEmployee">
+  <mat-card-header>
+    <mat-card-title>
+      {{ selectedEmployee.firstName }} {{ selectedEmployee.lastName }}
+    </mat-card-title>
+ </mat-card-header>
+ <mat-card-content>
+  <table
+  *ngIf="employeeDiscountApplied || dependentDiscountsApplied > 0"
+  class="discounts-table">
+  <tr>
+    <th>Discounts Applied</th>
+  </tr>
+  <tr *ngIf="employeeDiscountApplied" class="cost-table-row">
+    <td>Employee discount</td>
+    <td><mat-icon class="checkmark">check_circle_outline</mat-icon></td>
+  </tr>
+  <tr *ngIf="dependentDiscountsApplied > 0" class="cost-table-row">
+    <td>Dependents ({{dependentDiscountsApplied}})</td>
+    <td><mat-icon class="checkmark">check_circle_outline</mat-icon></td>
+  </tr>
+</table>
+
+  <table class="cost-table">
+    <tr>
+      <th>Cost breakdown</th>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Employee</td>
+      <td>{{ employeeCost | currency}}</td>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Dependents ({{ selectedEmployee.dependents.length }})</td>
+      <td>{{ dependentCost | currency }}</td>
+    </tr>
+    <tr>
+      <th>Totals</th>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Per pay period</td>
+      <td>{{ totalCostPerPayPeriod | currency }}</td>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Per year</td>
+      <td>{{ totalYearlyCost | currency }}</td>
+    </tr>
+  </table>
  </mat-card-content>
 </mat-card>

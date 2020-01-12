@@ -19,7 +19,7 @@ namespace NSBenefits.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<EmployeeDto> Get()
+        public ActionResult<IEnumerable<EmployeeDto>> Get()
         {
             var result = new List<EmployeeDto>();
 
@@ -33,6 +33,11 @@ namespace NSBenefits.Controllers
                     new DependentDto
                     {
                         FirstName = "Andy",
+                        LastName = "Smith"
+                    },
+                    new DependentDto
+                    {
+                        FirstName = "Robert",
                         LastName = "Smith"
                     }
                 }
@@ -53,7 +58,7 @@ namespace NSBenefits.Controllers
                 }
             });
 
-            return result;
+            return Ok(result);
         }
     }
 }

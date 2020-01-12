@@ -1,0 +1,15 @@
+@import './../styles/variables.scss';
+
+.cost-table-row {
+  width: 12rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.discounts-table {
+  margin: 1rem 0;
+
+  .checkmark {
+    color: $green;
+  }
+}
