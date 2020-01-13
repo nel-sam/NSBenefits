@@ -16,15 +16,16 @@
     font-size: $fontSM;
   }
 
-  .cost-table-row {
-    height: 1.5rem;
-    width: 12rem;
-    display: flex;
-    justify-content: space-between;
-  }
-
   .table {
     margin: 1rem 0;
+    width: 100%;
+
+    .cost-table-row {
+      height: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
 
     .checkmark {
       font-size: $fontSM;
