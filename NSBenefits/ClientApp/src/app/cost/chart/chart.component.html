@@ -1,0 +1,24 @@
+<div class="chart-section">
+  <div class="percentage-section">
+    <div class="percentage-text">
+      <div class="percentage-number">{{ costPercentageOfPay.toFixed(2) }}%</div>
+      <div>of salary</div>
+    </div>
+  </div>
+
+  <div class="cost-bar-section">
+    <div class="cost-bar">
+      <div class="cost-bar-cost"></div>
+    </div>
+    <div class="cost-bar-text">
+      <div class="cost-bar-cost-text">
+        <div>{{ totalCostPerPayPeriod | currency }}</div>
+        <div class="cost-bar-label">Cost</div>
+      </div>
+      <div class="cost-bar-salary-text">
+        <div>{{ salary | currency }}</div>
+        <div class="cost-bar-label salary-label">Salary</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,59 +16,8 @@
     font-size: $fontSM;
   }
 
-  .chart-section {
-    .percentage-section {
-      border: 4px solid $positiveAccentColor;
-      border-radius: 100%;
-      height: 10rem;
-      width: 10rem;
-      margin: 0 auto;
-
-      .percentage-text {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: $softTextColor;
-
-        .percentage-number {
-          font-size: 2.5rem;
-        }
-      }
-    }
-
-    .cost-bar-section {
-      .cost-bar {
-        margin-top: 1rem;
-        height: 1.25rem;
-        background-color: $positiveAccentColor;
-
-        .cost-bar-cost {
-          background-color: $negativeAccentColor;
-          width: 1.3rem;
-          height: 100%;
-        }
-      }
-
-      .cost-bar-text {
-        display: flex;
-        justify-content: space-between;
-        color: $mediumTextColor;
-        
-        .cost-bar-label {
-          color: $softTextColor;
-          font-size: $fontSM;
-
-          &.salary-label {
-            text-align: right;
-          }
-        }
-      }
-    }
-  }
-
   .cost-table-row {
+    height: 1.5rem;
     width: 12rem;
     display: flex;
     justify-content: space-between;
@@ -76,10 +25,9 @@
 
   .table {
     margin: 1rem 0;
-  }
 
-  .discounts-table {
     .checkmark {
+      font-size: $fontSM;
       color: $positiveAccentColor;
     }
   }

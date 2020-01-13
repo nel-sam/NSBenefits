@@ -19,6 +19,7 @@ import {
   MatTooltipModule
 } from '@angular/material';
 import { CostComponent } from './cost/cost.component';
+import { ChartComponent } from './cost/chart/chart.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CostComponent } from './cost/cost.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CostComponent
+    CostComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

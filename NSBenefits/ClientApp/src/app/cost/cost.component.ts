@@ -22,7 +22,6 @@ export class CostComponent {
   public dependentDiscountsApplied: number;
   public totalYearlyCost: number;
   public totalCostPerPayPeriod: number;
-  public costPercentageOfPay: number;
 
   constructor(private employeeService: EmployeeService) {
     this.employees$ = this.employeeService.getAll();
@@ -41,13 +40,13 @@ export class CostComponent {
 
       if (dependent.firstName[0] === 'A') {
         this.dependentCost -= this.dependentBaseCost * this.discountPercentage;
+        dependent.discountApplies = true;
         this.dependentDiscountsApplied++;
       }
     }
 
     this.totalYearlyCost = this.employeeCost + this.dependentCost;
     this.totalCostPerPayPeriod = this.totalYearlyCost / this.paychecksPerYear;
-    this.costPercentageOfPay = ((this.totalCostPerPayPeriod / employee.salary) * 100);
   }
 
   private clearCosts() {
@@ -57,6 +56,5 @@ export class CostComponent {
     this.dependentCost = 0;
     this.totalYearlyCost = 0;
     this.totalCostPerPayPeriod = 0;
-    this.costPercentageOfPay = 0;
   }
 }
