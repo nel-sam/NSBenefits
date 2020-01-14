@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Data;
+using Data.Models;
 using Interfaces;
 
 namespace Services

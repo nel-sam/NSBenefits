@@ -1,13 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using NSBenefits.Controllers;
+using NSBenefits.DTOs;
 using System.Linq;
 using Interfaces;
-using Data;
+using Data.Models;
 using Moq;
-using Microsoft.AspNetCore.Mvc;
-using NSBenefits.DTOs;
+
 
 namespace UnitTests
 {
@@ -22,8 +23,8 @@ namespace UnitTests
         public void TestInitialize()
         {
             var controller = new EmployeeController(
-                            this.loggerMock.Object,
-                            this.employeeServiceMock.Object);
+                                this.loggerMock.Object,
+                                this.employeeServiceMock.Object);
 
             this.employeeController = controller;
         }

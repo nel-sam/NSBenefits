@@ -1,8 +1,6 @@
-using System;
-
-namespace Data
+namespace Data.Models
 {
-    public class Dependent
+  public class Dependent
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

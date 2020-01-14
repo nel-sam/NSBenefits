@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Data
+namespace Data.Models
 {
   public class Employee
     {
