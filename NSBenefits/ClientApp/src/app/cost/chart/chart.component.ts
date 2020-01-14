@@ -9,10 +9,18 @@ export class ChartComponent implements OnChanges {
   @Input() salary: number;
   @Input() totalCostPerPayPeriod: number;
   public costPercentageOfPay: number = 0;
-  public costbarWidth: string;
+  public costBarWidth: string;
 
   ngOnChanges() {
-    this.costPercentageOfPay = ((this.totalCostPerPayPeriod / this.salary) * 100);
-    this.costbarWidth = `${this.costPercentageOfPay * 10}px`;
+    this.costPercentageOfPay = this.getCostPercentage(this.totalCostPerPayPeriod, this.salary);
+    this.costBarWidth = this.getCostBarWidth(this.costPercentageOfPay);
+    }
+
+    getCostPercentage(totalCostPerPayPeriod: number, salary: number): number {
+      return (totalCostPerPayPeriod / salary) * 100;
+    }
+
+    getCostBarWidth(costPercentageOfPay: number): string {
+      return `${costPercentageOfPay * 10}px`
     }
 }

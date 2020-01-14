@@ -22,4 +22,14 @@ describe('ChartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should calculate the benefits cost percentage', () => {
+    const result = component.getCostPercentage(10, 100);
+    expect(result).toBe(10);
+  });
+
+  it('should calculate the bar width', () => {
+    const result = component.getCostBarWidth(3);
+    expect(result).toBe('30px');
+  });
 });
