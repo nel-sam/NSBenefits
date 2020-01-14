@@ -13,7 +13,7 @@ html {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    color: $headerFontColor;
+    color: $header-font-color;
   }
 
   .desktop-menu {
@@ -21,7 +21,7 @@ html {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tablet-breakpoint) {
   html {
     font-size: 16px;
   }
@@ -36,7 +36,7 @@ html {
 
       .menu-link {
         font-size: 0.9rem;
-        color: $headerFontColor;
+        color: $header-font-color;
       }
     }
   }

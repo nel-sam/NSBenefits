@@ -1,12 +1,15 @@
 // TODO: Get a better set of colors
-$headerFontColor: rgb(97, 119, 116);
-$positiveAccentColor: #1DC690;
-$negativeAccentColor: rgb(198, 77, 29);
-$infoButtonColor: rgb(97, 119, 116);
-$mediumTextColor: rgb(58, 71, 70);
-$softTextColor: rgb(97, 119, 116);
+$light-background-color: rgba(233, 233, 233, 0.651);
+$header-font-color: rgb(97, 119, 116);
+$positive-accent-color: #1DC690;
+$negative-accent-color: rgb(198, 77, 29);
+$info-button-color: rgb(97, 119, 116);
+$medium-text-color: rgb(58, 71, 70);
+$soft-text-color: rgb(97, 119, 116);
 
 // Sizes
 $fontM: 1rem;
 $fontSM: 0.9rem;
 $border-radius: 4px;
+
+$tablet-breakpoint: 768px;

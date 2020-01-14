@@ -2,8 +2,12 @@
 
 :host {
   .chart-section {
+    width: 100%;
+    max-width: 20rem;
+    margin: 0 auto;
+
     .percentage-section {
-      border: 4px solid $positiveAccentColor;
+      border: 4px solid $positive-accent-color;
       border-radius: 100%;
       height: 10rem;
       width: 10rem;
@@ -15,7 +19,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: $softTextColor;
+        color: $soft-text-color;
 
         .percentage-number {
           font-size: 2.5rem;
@@ -23,18 +27,18 @@
       }
     }
   }
-  
+
   .cost-bar-section {
     .cost-bar {
       margin-top: 1rem;
       height: 1.25rem;
-      background-color: $positiveAccentColor;
+      background-color: $positive-accent-color;
       border-radius: $border-radius;
 
       .cost-bar-cost {
         width: 1.3rem;
         height: 100%;
-        background-color: $negativeAccentColor;
+        background-color: $negative-accent-color;
         border-radius: $border-radius 0 0 $border-radius;
       }
     }
@@ -42,10 +46,10 @@
     .cost-bar-text {
       display: flex;
       justify-content: space-between;
-      color: $mediumTextColor;
+      color: $medium-text-color;
 
       .cost-bar-label {
-        color: $softTextColor;
+        color: $soft-text-color;
         font-size: $fontSM;
 
         &.salary-label {

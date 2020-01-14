@@ -12,24 +12,65 @@
   }
 
   .info-icon {
-    color: $infoButtonColor;
+    color: $info-button-color;
     font-size: $fontSM;
   }
 
-  .table {
-    margin: 1rem 0;
+  .main-section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 35rem;
+
+    .content-section {
+      display: flex;
+      flex-direction: column;
+
+      .cost-breakdown {
+        margin: 0 auto;
+
+        .table {
+          margin: 1rem 0;
+          width: 100%;
+          min-width: 15rem;
+          max-width: 20rem;
+
+          .cost-table-row {
+            height: 1.5rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .checkmark {
+            font-size: $fontSM;
+            color: $positive-accent-color;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    margin: auto;
+    max-width: 50rem;
     width: 100%;
 
-    .cost-table-row {
-      height: 1.5rem;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
+    .main-section {
+      .content-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
 
-    .checkmark {
-      font-size: $fontSM;
-      color: $positiveAccentColor;
+        .table {
+          max-width: 30rem;
+        }
+
+        .cost-breakdown {
+          background-color: $light-background-color;
+          border-radius: $border-radius;
+          padding: 1rem 2rem;
+        }
+      }
     }
   }
 }
