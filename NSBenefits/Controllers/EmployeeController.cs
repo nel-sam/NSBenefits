@@ -7,7 +7,7 @@ using NSBenefits.DTOs;
 
 namespace NSBenefits.Controllers
 {
-  [ApiController]
+    [ApiController]
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace NSBenefits.Controllers
         public ActionResult<IEnumerable<EmployeeDto>> Get()
         {
             var employees = this._employeeService.GetAll();
-            
+
             var result = employees.Select(e => new EmployeeDto
             {
                 FirstName = e.FirstName,
