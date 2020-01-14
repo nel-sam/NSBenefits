@@ -1,0 +1,32 @@
+@import './../../styles/variables.scss';
+
+.cost-breakdown {
+  margin: 0 auto;
+
+  .table {
+    margin: 1rem 0;
+    width: 100%;
+    min-width: 15rem;
+    max-width: 20rem;
+
+    .cost-table-row {
+      height: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .checkmark {
+      font-size: $fontSM;
+      color: $positive-accent-color;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .cost-breakdown {
+    background-color: $light-background-color;
+    border-radius: $border-radius;
+    padding: 1rem 2rem;
+  }
+}

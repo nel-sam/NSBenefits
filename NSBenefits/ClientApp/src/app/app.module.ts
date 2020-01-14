@@ -20,6 +20,7 @@ import {
 } from '@angular/material';
 import { CostComponent } from './cost/cost.component';
 import { ChartComponent } from './cost/chart/chart.component';
+import { BreakdownComponent } from './cost/breakdown/breakdown.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ChartComponent } from './cost/chart/chart.component';
     NavMenuComponent,
     HomeComponent,
     CostComponent,
-    ChartComponent
+    ChartComponent,
+    BreakdownComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

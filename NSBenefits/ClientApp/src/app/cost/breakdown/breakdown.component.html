@@ -1,0 +1,45 @@
+<div class="cost-breakdown">
+  <h2>Cost Breakdown</h2>
+  <table class="cost-table table">
+    <tr class="cost-table-row">
+      <td>
+        Employee
+        <mat-icon
+          *ngIf="employeeDiscountApplied"
+          class="checkmark"
+          matTooltip="Employee discount applied because the employee's name begins with 'A'">
+          check_circle_outline
+        </mat-icon>
+      </td>
+      <td>{{ employeeCost | currency}}</td>
+    </tr>
+    <tr
+      *ngFor="let dependent of selectedEmployee.dependents"
+      class="cost-table-row">
+      <td>
+        {{ dependent.firstName }} {{ dependent.lastName }}
+        <mat-icon
+          *ngIf="dependent.discountApplies"
+          class="checkmark"
+          matTooltip="Dependent discount applied because the dependent's name begins with 'A'">
+          check_circle_outline
+        </mat-icon>
+      </td>
+      <td>{{ dependentCost | currency }}</td>
+    </tr>
+  </table>
+
+  <table class="table">
+    <tr>
+      <th>Totals</th>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Per pay period</td>
+      <td>{{ totalCostPerPayPeriod | currency }}</td>
+    </tr>
+    <tr class="cost-table-row">
+      <td>Per year</td>
+      <td>{{ totalYearlyCost | currency }}</td>
+    </tr>
+  </table>
+</div>
