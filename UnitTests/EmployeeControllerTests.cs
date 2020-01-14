@@ -6,6 +6,8 @@ using System.Linq;
 using Interfaces;
 using Data;
 using Moq;
+using Microsoft.AspNetCore.Mvc;
+using NSBenefits.DTOs;
 
 namespace UnitTests
 {
@@ -27,20 +29,53 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void Get_Returns_All_Employees()
+        public void When_No_Dependents_Exist_Get_Should_Return_All()
         {
+            // Arrange
+            var name = "Joe";
             this.employeeServiceMock.Setup(x => x.GetAll())
                 .Returns(new List<Employee>
                 {
                     new Employee
                     {
-                        FirstName = "Joe"
+                        FirstName = name
                     }
                 });
 
-            var result = this.employeeController.Get();
-            Assert.IsNotNull(result.Value);
-            Assert.AreEqual("Joe", result.Value.ToList()[0].FirstName);
+            // Act
+            var result = this.employeeController.Get().Result as OkObjectResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            var asIEnum = result.Value as IEnumerable<EmployeeDto>;
+            var retrievedFirstName = asIEnum.First().FirstName;
+            Assert.AreEqual(name, retrievedFirstName);
+        }
+
+        [TestMethod]
+        public void When_Dependents_Exist_Get_Should_Return_All()
+        {
+            var name = "Rosa";
+            this.employeeServiceMock.Setup(x => x.GetAll())
+                .Returns(new List<Employee>
+                {
+                    new Employee
+                    {
+                        Dependents = new List<Dependent>
+                        {
+                            new Dependent
+                            {
+                                FirstName = name
+                            }
+                        }
+                    }
+                });
+
+            var result = this.employeeController.Get().Result as OkObjectResult;
+            Assert.IsNotNull(result);
+            var asIEnum = result.Value as IEnumerable<EmployeeDto>;
+            var retrievedFirstName = asIEnum.First().Dependents.First().FirstName;
+            Assert.AreEqual(name, retrievedFirstName);
         }
     }
 }

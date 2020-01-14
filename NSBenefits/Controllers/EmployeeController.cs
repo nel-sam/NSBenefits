@@ -32,7 +32,7 @@ namespace NSBenefits.Controllers
                 FirstName = e.FirstName,
                 LastName = e.LastName,
                 Salary = e.Salary,
-                Dependents = e.Dependents.Select(d => new DependentDto
+                Dependents = e.Dependents?.Select(d => new DependentDto
                 {
                     FirstName = d.FirstName,
                     LastName = d.LastName,
