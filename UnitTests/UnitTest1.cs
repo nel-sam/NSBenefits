@@ -3,11 +3,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class EmployeeControllerTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Get_Returns_All_Employees()
         {
+            
         }
     }
 }

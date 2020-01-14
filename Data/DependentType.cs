@@ -1,6 +1,4 @@
-using System;
-
-namespace NSBenefits
+namespace Data
 {
     public enum DependentType
     {

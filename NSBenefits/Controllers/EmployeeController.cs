@@ -1,61 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NSBenefits.DTOs;
 
 namespace NSBenefits.Controllers
 {
-    [ApiController]
+  [ApiController]
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
     {
         private readonly ILogger<EmployeeController> _logger;
+        private readonly IEmployeeService _employeeService;
 
-        public EmployeeController(ILogger<EmployeeController> logger)
+        public EmployeeController(
+            ILogger<EmployeeController> logger,
+            IEmployeeService employeeService)
         {
-            _logger = logger;
+            this._logger = logger;
+            this._employeeService = employeeService;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<EmployeeDto>> Get()
         {
-            var result = new List<EmployeeDto>();
-
-            result.Add(new EmployeeDto
+            var employees = this._employeeService.GetAll();
+            
+            var result = employees.Select(e => new EmployeeDto
             {
-                FirstName = "Bob",
-                LastName = "Smith",
-                Salary = 2000,
-                Dependents = new List<DependentDto>
+                FirstName = e.FirstName,
+                LastName = e.LastName,
+                Salary = e.Salary,
+                Dependents = e.Dependents.Select(d => new DependentDto
                 {
-                    new DependentDto
-                    {
-                        FirstName = "Andy",
-                        LastName = "Smith"
-                    },
-                    new DependentDto
-                    {
-                        FirstName = "Robert",
-                        LastName = "Smith"
-                    }
-                }
-            });
-
-            result.Add(new EmployeeDto
-            {
-                FirstName = "Aaron",
-                LastName = "Thompson",
-                Salary = 2000,
-                Dependents = new List<DependentDto>
-                {
-                    new DependentDto
-                    {
-                        FirstName = "Mary",
-                        LastName = "Thompson"
-                    }
-                }
+                    FirstName = d.FirstName,
+                    LastName = d.LastName,
+                    DependentType = d.DependentType
+                })
             });
 
             return Ok(result);

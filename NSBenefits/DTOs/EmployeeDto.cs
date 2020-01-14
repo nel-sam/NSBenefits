@@ -7,6 +7,6 @@ namespace NSBenefits.DTOs
         // Decimals (or ints * 100) should be used to represent
         // currency, not floats because floats have rounding issues
         public decimal Salary { get; set; }
-        public List<DependentDto> Dependents { get; set; }
+        public IEnumerable<DependentDto> Dependents { get; set; }
     }
 }
