@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Data.Models;
+using Models;
 
 namespace Interfaces
 {

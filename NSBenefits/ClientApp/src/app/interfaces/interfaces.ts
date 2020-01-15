@@ -13,6 +13,5 @@ export interface Employee extends Person {
 }
 
 export interface Dependent extends Person {
-  dependentType: string;
   discountApplies: boolean;
 }

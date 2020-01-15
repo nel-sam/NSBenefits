@@ -35,8 +35,7 @@ namespace NSBenefits.Controllers
                 Dependents = e.Dependents?.Select(d => new DependentDto
                 {
                     FirstName = d.FirstName,
-                    LastName = d.LastName,
-                    DependentType = d.DependentType
+                    LastName = d.LastName
                 })
             });
 

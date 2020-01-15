@@ -6,7 +6,7 @@ using NSBenefits.Controllers;
 using NSBenefits.DTOs;
 using System.Linq;
 using Interfaces;
-using Data.Models;
+using Models;
 using Moq;
 
 
