@@ -2,11 +2,9 @@ using System.Collections.Generic;
 
 namespace Models
 {
-  public class Employee
+  public class Employee: Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public decimal Salary { get; set; }
-        public IEnumerable<Dependent> Dependents { get; set; }
+        public ICollection<Dependent> Dependents { get; set; }
     }
 }

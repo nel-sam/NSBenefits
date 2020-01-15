@@ -1,8 +1,8 @@
 namespace Models
 {
-    public class Dependent
+    public class Dependent: Person
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
     }
 }

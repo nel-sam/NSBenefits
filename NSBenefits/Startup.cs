@@ -1,3 +1,4 @@
+using Data;
 using Data.Repositories;
 using Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -11,7 +12,7 @@ using Services;
 
 namespace NSBenefits
 {
-    public class Startup
+  public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -37,7 +38,10 @@ namespace NSBenefits
             });
 
             services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+            //services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+            services.AddScoped<IEmployeeRepo, EmployeeInMemoryRepo>();
+
+            services.AddDbContext<BenefitsContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

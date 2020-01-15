@@ -12,30 +12,34 @@ namespace Data
 
         private IConfiguration configuration { get; }
 
-    public BenefitsContext(IConfiguration configuration) => this.configuration = configuration;
+        public BenefitsContext() {}
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Employee>().HasMany(e => e.Dependents);
-
-        modelBuilder.Entity<Employee>().HasData(
-            new Employee
-            {
-                FirstName = "Jake",
-                LastName = "Jacobs",
-                Salary = 2000,
-                Dependents = new List<Dependent>
-                {
-                    new Dependent { FirstName = "Anthony", LastName ="Jacobs" },
-                    new Dependent { FirstName = "Margret", LastName ="Jacobs" }
-                }
-            }
-        );
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public BenefitsContext(IConfiguration configuration)
         {
-           optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            this.configuration = configuration;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>().HasData(
+                new Employee
+                {
+                    FirstName = "Jake",
+                    LastName = "Jacobs",
+                    Salary = 2000,
+                    Dependents = new List<Dependent>
+                    {
+                        new Dependent { FirstName = "Anthony", LastName ="Jacobs" },
+                        new Dependent { FirstName = "Margret", LastName ="Jacobs" }
+                    }
+                }
+            );
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var connectionString = configuration["ConnectionStrings::DefaultConnection"];
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }
