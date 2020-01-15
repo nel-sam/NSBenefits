@@ -21,25 +21,29 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().HasData(
-                new Employee
-                {
-                    FirstName = "Jake",
-                    LastName = "Jacobs",
-                    Salary = 2000,
-                    Dependents = new List<Dependent>
-                    {
-                        new Dependent { FirstName = "Anthony", LastName ="Jacobs" },
-                        new Dependent { FirstName = "Margret", LastName ="Jacobs" }
-                    }
-                }
-            );
+            modelBuilder.Entity<Dependent>().HasKey(d => d.EmployeeId);
+            modelBuilder.Entity<Employee>().HasMany<Dependent>();
+
+            //modelBuilder.Entity<Employee>().HasData(
+            //    new Employee
+            //    {
+            //        Id = 1,
+            //        FirstName = "Jake",
+            //        LastName = "Jacobs",
+            //        Salary = 2000,
+            //        Dependents = new List<Dependent>
+            //        {
+            //            new Dependent { FirstName = "Anthony", LastName ="Jacobs" },
+            //            new Dependent { FirstName = "Margret", LastName ="Jacobs" }
+            //        }
+            //    }
+            //);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = configuration["ConnectionStrings::DefaultConnection"];
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer("Server=tcp:nsbenefits.database.windows.net,1433;Initial Catalog=NSBenefits;Persist Security Info=False;User ID=Zachsta18Blague;Password=Gt,u7$T-X}n<^F*b;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }
