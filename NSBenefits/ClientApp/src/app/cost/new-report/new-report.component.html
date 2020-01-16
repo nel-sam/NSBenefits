@@ -22,7 +22,7 @@
         {{ dependent.firstName }} {{ dependent.lastName }}
       </div>
     </section>
-    
+
     <button class="dependent-add-button button" mat-flat-button color="primary" (click)="addDependent()">
       <mat-icon>add</mat-icon>
       Add Dependent
@@ -40,16 +40,19 @@
       </mat-card-title>
       <mat-card-subtitle>Benefits cost analysis</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content class="content-section">
-      <app-chart
-        [salary]="selectedEmployee.salary"
-        [totalCostPerPayPeriod]="costAnalysis.totalCostPerPayPeriod">
-      </app-chart>
+    <mat-card-content>
+      <div class="content-section">
+        <app-chart
+          [salary]="selectedEmployee.salary"
+          [totalCostPerPayPeriod]="costAnalysis.totalCostPerPayPeriod">
+        </app-chart>
 
-      <app-breakdown
-        [costAnalysis]="costAnalysis"
-        [selectedEmployee]="selectedEmployee">
-      </app-breakdown>
+        <app-breakdown
+          class="cost-breakdown"
+          [costAnalysis]="costAnalysis"
+          [selectedEmployee]="selectedEmployee">
+        </app-breakdown>
+      </div>
 
       <button
         mat-flat-button

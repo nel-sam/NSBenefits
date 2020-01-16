@@ -27,8 +27,20 @@
         margin: 1rem 0;
       }
 
-      .new-report-button {
-        margin: 1rem auto;
+      .content-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        .table {
+          max-width: 30rem;
+        }
+
+        .cost-breakdown {
+          background-color: $light-background-color;
+          border-radius: $border-radius;
+          margin: 1rem 2rem;
+        }
       }
     }
   }
