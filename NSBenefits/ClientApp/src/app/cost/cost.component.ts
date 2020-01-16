@@ -4,6 +4,7 @@ import { Employee, AppState } from '../interfaces/interfaces';
 import { EmployeeService } from '../services/employee-service';
 import { Store } from '@ngrx/store';
 import * as EmployeeActions from './../state/actions/employee.actions'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cost',
@@ -26,12 +27,15 @@ export class CostComponent implements OnInit {
   public totalCostPerPayPeriod: number;
 
   constructor(
+    private titleService: Title,
     private store: Store<AppState>,
     private employeeService: EmployeeService) {
     this.employees$ = this.store.select('employees');
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Cost Calculator');
+
     this.employeeService.getAll()
       .subscribe(result => {
           this.store.dispatch(new EmployeeActions.LoadAllEmployees(result))
