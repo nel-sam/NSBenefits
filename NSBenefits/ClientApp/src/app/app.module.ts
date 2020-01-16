@@ -19,7 +19,7 @@ import {
   MatSelectModule,
   MatTooltipModule
 } from '@angular/material';
-import { CostComponent } from './cost/cost.component';
+import { ReportReviewComponent } from './cost/report-review-component/report-review.component';
 import { ChartComponent } from './cost/chart/chart.component';
 import { BreakdownComponent } from './cost/breakdown/breakdown.component';
 import { employeeReducer } from './state/reducers/employee.reducer'
@@ -29,7 +29,7 @@ import { employeeReducer } from './state/reducers/employee.reducer'
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CostComponent,
+    ReportReviewComponent,
     ChartComponent,
     BreakdownComponent
   ],
@@ -51,8 +51,8 @@ import { employeeReducer } from './state/reducers/employee.reducer'
     }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'cost', component: CostComponent, pathMatch: 'full' }
-      //{ path: '', component: CostComponent, pathMatch: 'full' }
+      { path: 'cost-review', component: ReportReviewComponent, pathMatch: 'full' }
+      //{ path: '', component: ReportReviewComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],

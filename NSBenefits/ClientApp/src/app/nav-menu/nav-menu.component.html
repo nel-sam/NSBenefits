@@ -8,9 +8,13 @@
           <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <a mat-menu-item [routerLink]="['/cost']">
+          <a mat-menu-item [routerLink]="['/cost-new']">
             <mat-icon>attach_money</mat-icon>
-            <span>Calculate Cost</span>
+            <span>New Report</span>
+          </a>
+          <a mat-menu-item [routerLink]="['/cost-review']">
+            <mat-icon>info</mat-icon>
+            <span>Review Reports</span>
           </a>
           <a mat-menu-item [routerLink]="['/logout']">
             <mat-icon>exit_to_app</mat-icon>
@@ -20,7 +24,8 @@
       </div>
 
       <div class="desktop-menu">
-        <a class="menu-link" [routerLink]="['/cost']">Calculate Cost</a>
+        <a class="menu-link" [routerLink]="['/cost-new']">New Report</a>
+        <a class="menu-link" [routerLink]="['/cost-review']">Review Reports</a>
         <a class="menu-link" [routerLink]="['/logout']">Logout</a>
       </div>
     </div>
