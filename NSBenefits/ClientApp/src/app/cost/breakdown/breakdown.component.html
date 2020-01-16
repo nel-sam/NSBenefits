@@ -7,13 +7,13 @@
       <td>
         Employee
         <mat-icon
-          *ngIf="employeeDiscountApplied"
+          *ngIf="costAnalysis.employeeDiscountApplied"
           class="checkmark"
           matTooltip="Employee discount applied because the employee's name begins with 'A'">
           check_circle_outline
         </mat-icon>
       </td>
-      <td>{{ employeeCost | currency}}</td>
+      <td>{{ costAnalysis.employeeCost | currency}}</td>
     </tr>
     <tr
       *ngFor="let dependent of selectedEmployee.dependents"
@@ -27,7 +27,7 @@
           check_circle_outline
         </mat-icon>
       </td>
-      <td>{{ dependentCost | currency }}</td>
+      <td>{{ costAnalysis.dependentCost | currency }}</td>
     </tr>
   </table>
 
@@ -37,11 +37,11 @@
     </tr>
     <tr class="cost-table-row">
       <td>Per pay period</td>
-      <td>{{ totalCostPerPayPeriod | currency }}</td>
+      <td>{{ costAnalysis.totalCostPerPayPeriod | currency }}</td>
     </tr>
     <tr class="cost-table-row">
       <td>Per year</td>
-      <td>{{ totalYearlyCost | currency }}</td>
+      <td>{{ costAnalysis.totalYearlyCost | currency }}</td>
     </tr>
   </table>
 </div>

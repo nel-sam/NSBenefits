@@ -1,0 +1,35 @@
+@import './../../styles/variables.scss';
+
+:host {
+  .main-container {
+    margin: 1rem;
+
+    .button {
+      width: 100%;
+      display: block;
+      max-width: 20rem;
+      margin: 1rem auto;
+    }
+
+    .sub-header {
+      font-size: 1.1rem;
+    }
+
+    .input-field {
+      margin-left: 1rem;
+      width: 9rem;
+    }
+  }
+
+  @media (min-width: $tablet-breakpoint) {
+    .main-container {
+      .button {
+        margin: 1rem 0;
+      }
+
+      .new-report-button {
+        margin: 1rem auto;
+      }
+    }
+  }
+}

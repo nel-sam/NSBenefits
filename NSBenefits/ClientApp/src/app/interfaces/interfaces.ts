@@ -15,3 +15,12 @@ export interface Employee extends Person {
 export interface Dependent extends Person {
   discountApplies: boolean;
 }
+
+export interface CostAnalysis {
+  employeeCost: number;
+  employeeDiscountApplied: boolean;
+  totalYearlyCost: number;
+  totalCostPerPayPeriod: number;
+  dependentCost: number;
+  dependentDiscountsApplied: number;
+}

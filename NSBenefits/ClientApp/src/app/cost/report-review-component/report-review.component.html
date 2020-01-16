@@ -8,7 +8,7 @@
 </mat-form-field>
 
 <mat-card
-  *ngIf="selectedEmployee"
+  *ngIf="selectedEmployee && costAnalysis"
   class="main-section">
   <mat-card-header>
     <mat-card-title>
@@ -19,15 +19,11 @@
   <mat-card-content class="content-section">
     <app-chart
       [salary]="selectedEmployee.salary"
-      [totalCostPerPayPeriod]="totalCostPerPayPeriod">
+      [totalCostPerPayPeriod]="costAnalysis.totalCostPerPayPeriod">
     </app-chart>
 
     <app-breakdown
-      [employeeDiscountApplied]="employeeDiscountApplied"
-      [employeeCost]="employeeCost"
-      [dependentCost]="dependentCost"
-      [totalCostPerPayPeriod]="totalCostPerPayPeriod"
-      [totalYearlyCost]="totalYearlyCost"
+      [costAnalysis]="costAnalysis"
       [selectedEmployee]="selectedEmployee">
     </app-breakdown>
   </mat-card-content>

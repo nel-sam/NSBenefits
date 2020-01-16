@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Employee } from 'src/app/interfaces/interfaces';
+import { Employee, CostAnalysis } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-breakdown',
@@ -7,10 +7,6 @@ import { Employee } from 'src/app/interfaces/interfaces';
   styleUrls: ['./breakdown.component.scss']
 })
 export class BreakdownComponent {
-  @Input() employeeDiscountApplied: boolean;
-  @Input() employeeCost: number;
-  @Input() dependentCost: number;
-  @Input() totalCostPerPayPeriod: number;
-  @Input() totalYearlyCost: number;
+  @Input() costAnalysis: CostAnalysis;
   @Input() selectedEmployee: Employee;
 }

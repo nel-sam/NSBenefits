@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
@@ -17,12 +17,14 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatInputModule
 } from '@angular/material';
 import { ReportReviewComponent } from './cost/report-review-component/report-review.component';
 import { ChartComponent } from './cost/chart/chart.component';
 import { BreakdownComponent } from './cost/breakdown/breakdown.component';
-import { employeeReducer } from './state/reducers/employee.reducer'
+import { employeeReducer } from './state/reducers/employee.reducer';
+import { NewReportComponent } from './cost/new-report/new-report.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { employeeReducer } from './state/reducers/employee.reducer'
     HomeComponent,
     ReportReviewComponent,
     ChartComponent,
-    BreakdownComponent
+    BreakdownComponent,
+    NewReportComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -46,13 +49,14 @@ import { employeeReducer } from './state/reducers/employee.reducer'
     MatFormFieldModule,
     MatSelectModule,
     MatTooltipModule,
+    MatInputModule,
     StoreModule.forRoot({
       employees: employeeReducer
     }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'cost-new', component: NewReportComponent, pathMatch: 'full' },
       { path: 'cost-review', component: ReportReviewComponent, pathMatch: 'full' }
-      //{ path: '', component: ReportReviewComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee, AppState } from '../../interfaces/interfaces';
+import { Employee, AppState, CostAnalysis } from '../../interfaces/interfaces';
 import { EmployeeService } from '../../services/employee-service';
 import { Store } from '@ngrx/store';
 import * as EmployeeActions from '../../state/actions/employee.actions'
@@ -14,17 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class ReportReviewComponent implements OnInit {
   public employees$: Observable<Employee[]>;
   public selectedEmployee: Employee;
-
-  public paychecksPerYear: number = 26;
-  public discountPercentage: number = 0.1;
-  public employeeBaseCost: number = 1000;
-  public dependentBaseCost: number = 500;
-  public employeeCost: number;
-  public employeeDiscountApplied: boolean;
-  public dependentCost: number;
-  public dependentDiscountsApplied: number;
-  public totalYearlyCost: number;
-  public totalCostPerPayPeriod: number;
+  public costAnalysis: CostAnalysis;
 
   constructor(
     private titleService: Title,
@@ -45,33 +35,6 @@ export class ReportReviewComponent implements OnInit {
   }
 
   public calculateCost(employee: Employee) {
-    this.clearCosts();
-
-    if (employee.firstName[0] === 'A') {
-      this.employeeCost = this.employeeBaseCost - (this.employeeBaseCost * this.discountPercentage);
-      this.employeeDiscountApplied = true;
-    }
-
-    for (let dependent of employee.dependents) {
-      this.dependentCost += this.dependentBaseCost;
-
-      if (dependent.firstName[0] === 'A') {
-        this.dependentCost -= this.dependentBaseCost * this.discountPercentage;
-        dependent.discountApplies = true;
-        this.dependentDiscountsApplied++;
-      }
-    }
-
-    this.totalYearlyCost = this.employeeCost + this.dependentCost;
-    this.totalCostPerPayPeriod = this.totalYearlyCost / this.paychecksPerYear;
-  }
-
-  private clearCosts() {
-    this.employeeDiscountApplied = false;
-    this.dependentDiscountsApplied = 0;
-    this.employeeCost = this.employeeBaseCost;
-    this.dependentCost = 0;
-    this.totalYearlyCost = 0;
-    this.totalCostPerPayPeriod = 0;
+    this.costAnalysis = this.employeeService.calculateCost(employee);
   }
 }
