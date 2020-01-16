@@ -46,9 +46,9 @@ import { BreakdownComponent } from './cost/breakdown/breakdown.component';
     MatSelectModule,
     MatTooltipModule,
     RouterModule.forRoot([
-      //{ path: '', component: HomeComponent, pathMatch: 'full' },
-      //{ path: 'cost', component: CostComponent, pathMatch: 'full' }
-      { path: '', component: CostComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'cost', component: CostComponent, pathMatch: 'full' }
+      //{ path: '', component: CostComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],
