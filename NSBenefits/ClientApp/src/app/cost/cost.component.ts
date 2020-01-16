@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../interfaces/interfaces';
+import { Employee, AppState } from '../interfaces/interfaces';
 import { EmployeeService } from '../services/employee-service';
+import { Store } from '@ngrx/store';
+import * as EmployeeActions from './../state/actions/employee.actions'
 
 @Component({
   selector: 'app-cost',
   templateUrl: './cost.component.html',
   styleUrls: [ './cost.component.scss' ]
 })
-export class CostComponent {
+export class CostComponent implements OnInit {
   public employees$: Observable<Employee[]>;
   public selectedEmployee: Employee;
 
@@ -23,8 +25,19 @@ export class CostComponent {
   public totalYearlyCost: number;
   public totalCostPerPayPeriod: number;
 
-  constructor(private employeeService: EmployeeService) {
-    this.employees$ = this.employeeService.getAll();
+  constructor(
+    private store: Store<AppState>,
+    private employeeService: EmployeeService) {
+    this.employees$ = this.store.select('employees');
+  }
+
+  ngOnInit() {
+    this.employeeService.getAll()
+      .subscribe(result => {
+          this.store.dispatch(new EmployeeActions.LoadAllEmployees(result))
+      }, error => {
+        alert('Error occurred ' + error);
+      });
   }
 
   public calculateCost(employee: Employee) {
