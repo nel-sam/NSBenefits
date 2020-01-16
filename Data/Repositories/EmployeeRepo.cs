@@ -17,5 +17,11 @@ namespace Data.Repositories
       return this.benefitsContext.Employees
                 .Include(e => e.Dependents);
     }
+
+    public void Create(Employee employee)
+    {
+      this.benefitsContext.Employees.Add(employee);
+      this.benefitsContext.SaveChanges();
+    }
   }
 }

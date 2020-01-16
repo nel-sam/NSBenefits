@@ -6,5 +6,7 @@ namespace Interfaces
     public interface IEmployeeService
     {
         IEnumerable<Employee> GetAll();
+
+        void Create(Employee employee);
     }
 }

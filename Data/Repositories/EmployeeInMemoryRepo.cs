@@ -6,6 +6,11 @@ namespace Data.Repositories
 {
   public class EmployeeInMemoryRepo : IEmployeeRepo
   {
+    public void Create(Employee employee)
+    {
+      throw new System.NotImplementedException();
+    }
+
     public IEnumerable<Employee> GetAll()
     {
       return new List<Employee>

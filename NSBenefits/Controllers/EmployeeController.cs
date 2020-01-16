@@ -3,6 +3,7 @@ using System.Linq;
 using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Models;
 using NSBenefits.DTOs;
 
 namespace NSBenefits.Controllers
@@ -40,6 +41,26 @@ namespace NSBenefits.Controllers
             });
 
             return Ok(result);
+        }
+
+        [HttpPost]
+        public IActionResult Create(EmployeeDto employee)
+        {
+            if (employee == null) {
+                return BadRequest();
+            }
+
+            // TODO: Add more validation such as verifying name is not junk
+
+            var newEmployee = new Employee
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                Salary = employee.Salary
+            };
+
+            this._employeeService.Create(newEmployee);
+            return Ok();
         }
     }
 }

@@ -17,5 +17,10 @@ namespace Services
     {
       return this.employeeRepo.GetAll();
     }
+
+    public void Create(Employee employee)
+    {
+      this.employeeRepo.Create(employee);
+    }
   }
 }

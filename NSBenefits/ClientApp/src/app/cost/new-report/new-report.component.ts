@@ -16,6 +16,7 @@ export class NewReportComponent implements OnInit {
   public dependents: Dependent[] = [];
   public selectedEmployee: Employee;
   public costAnalysis: CostAnalysis;
+  public saveData: boolean;
 
   constructor(private employeeService: EmployeeService) { }
 
@@ -70,6 +71,10 @@ export class NewReportComponent implements OnInit {
     } as Employee;
 
     this.costAnalysis = this.employeeService.calculateCost(this.selectedEmployee);
+
+    if (this.saveData) {
+      this.employeeService.create(this.selectedEmployee);
+    }
   }
 
   public clearValues(): void {

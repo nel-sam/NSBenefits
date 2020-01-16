@@ -18,7 +18,8 @@ import {
   MatFormFieldModule,
   MatSelectModule,
   MatTooltipModule,
-  MatInputModule
+  MatInputModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { ReportReviewComponent } from './cost/report-review-component/report-review.component';
 import { ChartComponent } from './cost/chart/chart.component';
@@ -50,6 +51,7 @@ import { NewReportComponent } from './cost/new-report/new-report.component'
     MatSelectModule,
     MatTooltipModule,
     MatInputModule,
+    MatCheckboxModule,
     StoreModule.forRoot({
       employees: employeeReducer
     }),

@@ -21,6 +21,10 @@ export class EmployeeService {
     return this.httpClient.get<Employee[]>(this.baseUrl + 'employee');
   }
 
+  public create(employee: Employee): Observable<any> {
+    return this.httpClient.post(this.baseUrl + 'employee', employee);
+  }
+
   public calculateCost(employee: Employee): CostAnalysis {
     let employeeCost = this.employeeBaseCost;
     let dependentCost = 0;
