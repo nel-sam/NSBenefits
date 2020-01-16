@@ -25,40 +25,53 @@ namespace Data.Migrations
                 name: "Dependents",
                 columns: table => new
                 {
-                    EmployeeId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Id = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    EmployeeId1 = table.Column<int>(nullable: false),
-                    EmployeeId2 = table.Column<int>(nullable: true)
+                    EmployeeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dependents", x => x.EmployeeId);
+                    table.PrimaryKey("PK_Dependents", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Dependents_Employees_EmployeeId1",
-                        column: x => x.EmployeeId1,
+                        name: "FK_Dependents_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Dependents_Employees_EmployeeId2",
-                        column: x => x.EmployeeId2,
-                        principalTable: "Employees",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "FirstName", "LastName", "Salary" },
+                values: new object[] { 1, "Jake", "Jacobs", 2000m });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "FirstName", "LastName", "Salary" },
+                values: new object[] { 2, "Adam", "Smith", 2000m });
+
+            migrationBuilder.InsertData(
+                table: "Employees",
+                columns: new[] { "Id", "FirstName", "LastName", "Salary" },
+                values: new object[] { 3, "Sam", "Samson", 2000m });
+
+            migrationBuilder.InsertData(
+                table: "Dependents",
+                columns: new[] { "Id", "EmployeeId", "FirstName", "LastName" },
+                values: new object[,]
+                {
+                    { 1, 1, "Anthony", "Jacobs" },
+                    { 2, 1, "Margret", "Jacobs" },
+                    { 3, 2, "Mike", "Smith" },
+                    { 4, 2, "Adam", "Smith Jr" }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dependents_EmployeeId1",
+                name: "IX_Dependents_EmployeeId",
                 table: "Dependents",
-                column: "EmployeeId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Dependents_EmployeeId2",
-                table: "Dependents",
-                column: "EmployeeId2");
+                column: "EmployeeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

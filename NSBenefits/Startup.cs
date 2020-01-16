@@ -38,8 +38,8 @@ namespace NSBenefits
             });
 
             services.AddScoped<IEmployeeService, EmployeeService>();
-            //services.AddScoped<IEmployeeRepo, EmployeeRepo>();
-            services.AddScoped<IEmployeeRepo, EmployeeInMemoryRepo>();
+            services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+            //services.AddScoped<IEmployeeRepo, EmployeeInMemoryRepo>();
 
             services.AddDbContext<BenefitsContext>();
         }
